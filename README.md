@@ -8,7 +8,13 @@ Built with Python — keeping it simple, readable, and a good way to learn by do
 
 ## Problem
 
-Most image converters are bloated with options you'll never use, and they only handle one image at a time. When you're working on a web project, you just need to drop in your images and get them back as **mobile, tablet, and desktop sizes** plus **WebP format** — nothing more, nothing less.
+Two real problems with existing image tools:
+
+**1. No bulk processing** — almost every free tool handles one image at a time. Upload, download, repeat. That gets painful fast when you have a folder of images to process.
+
+**2. Option overload** — tools like GIMP, ImageMagick, and Squoosh are powerful but overwhelming. When you just need 3 sizes and WebP, you don't want to configure 20 settings every time.
+
+imgkit solves both — drop a folder of images, run one command, get back everything you need. Nothing more, nothing less.
 
 ---
 
@@ -51,12 +57,13 @@ output/
 ## Setup
 
 ```bash
-pip install Pillow
-```
+# 1. Run setup once
+bash setup.sh
 
-## Run
+# 2. Activate the venv
+source venv/bin/activate
 
-```bash
+# 3. Process your images
 python process.py
 ```
 
