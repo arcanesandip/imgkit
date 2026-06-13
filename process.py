@@ -3,7 +3,7 @@ import os
 
 # ── Settings ──────────────────────────────────────────────
 INPUT_FOLDER  = "input"
-OUTPUT_FOLDER = "output"
+OUTPUT_FOLDER = os.path.join("output", "images")
 
 SIZES = {
     "mobile":  480,
@@ -24,7 +24,7 @@ def resize_image(img, width):
 
 
 def process_images():
-    # Make sure output folder exists
+    # Make sure output/images folder exists
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
     # Collect supported images from input folder
@@ -43,7 +43,7 @@ def process_images():
         input_path = os.path.join(INPUT_FOLDER, filename)
 
         with Image.open(input_path) as img:
-            # Convert to RGB so WebP/JPEG export works cleanly
+            # Convert to RGB so WebP export works cleanly
             img = img.convert("RGB")
 
             for screen, width in SIZES.items():
@@ -57,7 +57,7 @@ def process_images():
 
         print(f"  Done — image {index} of {len(images)}\n")
 
-    print("All images processed. Check the output folder.")
+    print(f"All images processed. Copy the output/images/ folder into your project assets.")
 
 
 if __name__ == "__main__":
