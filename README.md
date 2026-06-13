@@ -22,7 +22,7 @@ imgkit solves both — drop a folder of images, run one command, get back everyt
 
 1. Drop your images into the `input/` folder
 2. Run the script
-3. Pick up your processed images from the `output/` folder
+3. Copy `output/images/` straight into your project assets
 
 ---
 
@@ -40,16 +40,17 @@ Height is auto — aspect ratio is always preserved.
 
 ## Output naming
 
-Images are numbered in the order they are processed:
+Images are numbered in order with zero-padding:
 
 ```
 output/
-├── 1-mobile.webp
-├── 1-tablet.webp
-├── 1-desktop.webp
-├── 2-mobile.webp
-├── 2-tablet.webp
-└── 2-desktop.webp
+└── images/
+    ├── 01-mobile.webp
+    ├── 01-tablet.webp
+    ├── 01-desktop.webp
+    ├── 02-mobile.webp
+    ├── 02-tablet.webp
+    └── 02-desktop.webp
 ```
 
 ---
@@ -65,6 +66,9 @@ source venv/bin/activate
 
 # 3. Process your images
 python process.py
+
+# 4. When done, clean up
+bash clean.sh
 ```
 
 ---
