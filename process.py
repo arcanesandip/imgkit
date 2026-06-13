@@ -76,7 +76,8 @@ def process_images():
             for screen, width in SIZES.items():
                 resized = resize_image(img, width)
 
-                output_name = f"{index}-{screen}.webp"
+                pad = len(str(len(images)))
+                output_name = f"{str(index).zfill(pad)}-{screen}.webp"
                 output_path = os.path.join(OUTPUT_FOLDER, output_name)
 
                 resized.save(output_path, format="WEBP", quality=85)
